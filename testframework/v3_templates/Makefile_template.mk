@@ -23,7 +23,8 @@
 # DEFAULTS
 #===============================================================================
 POST_PATTERN = ""
-CC_FLAGS = -g
+BUFF_SIZE ?= 8
+CC_FLAGS = -g -DBUFF_SIZE=$(BUFF_SIZE)
 
 FRAMEWORK_PATH = ../testframework/v3/
 RENDU_MAKE_ARG = re
@@ -81,6 +82,7 @@ $(O_DIR)%.o: $(C_DIR)%.c $(H_FILES)
 
 exec_tests: $(O_FILES)
 	#echo "$(TEST_FILES)"
+	echo "BUFF_SIZE=$(BUFF_SIZE)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
 	$(eval CC_LIBFT_LIB = $(CC_LIBFT_LIB_DEFAULT))

@@ -6,7 +6,7 @@
 #    By: yyang <yyang@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/12/08 14:30:51 by celegran          #+#    #+#              #
-#    Updated: 2021/12/14 07:32:22 by huybui           ###   ########.fr        #
+#    Updated: 2021/12/14 13:54:43 by huybui           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,11 @@ libft_bonus:
 	@make -C libft_tests bonus
 
 get_next_line:
-	@make -s -C get_next_line_tests
+	@make -s -C get_next_line_tests BUFF_SIZE=1
+	@make -s -C get_next_line_tests BUFF_SIZE=8
+	@make -s -C get_next_line_tests BUFF_SIZE=32
+	@make -s -C get_next_line_tests BUFF_SIZE=9999
+	@make -s -C get_next_line_tests BUFF_SIZE=10000000
 
 gnl: get_next_line
 
