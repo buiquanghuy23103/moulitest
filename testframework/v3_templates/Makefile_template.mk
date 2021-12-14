@@ -80,7 +80,7 @@ $(O_DIR)%.o: $(C_DIR)%.c $(H_FILES)
 		&& printf "."
 
 exec_tests: $(O_FILES)
-	echo "$(TEST_FILES)"
+	#echo "$(TEST_FILES)"
 ifneq ("$(wildcard $(RENDU_PATH)/libft/Makefile)","")
 	make $(RENDU_MAKE_ARG) -k -C $(LIBFT_PATH)
 	$(eval CC_LIBFT_LIB = $(CC_LIBFT_LIB_DEFAULT))
