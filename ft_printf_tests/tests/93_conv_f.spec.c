@@ -31,6 +31,11 @@ static void zero_flag(t_test *test)
 	assert_printf("%012f - %012lf - %012Lf\n", 1.42, 1.42, 1.42l);
 }
 
+static void plus_flag(t_test *test)
+{
+	assert_printf("C: %+06.0f - %+06.0lf - %+06.0Lf\n", 1.42, 1.42, 1.42l);
+}
+
 void	suite_93_conv_f(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_small_nbr);
@@ -38,4 +43,5 @@ void	suite_93_conv_f(t_suite *suite)
 	SUITE_ADD_TEST(suite, simple_large_nbr);
 	SUITE_ADD_TEST(suite, simple_negative_large_nbr);
 	SUITE_ADD_TEST(suite, zero_flag);
+	SUITE_ADD_TEST(suite, plus_flag);
 }
