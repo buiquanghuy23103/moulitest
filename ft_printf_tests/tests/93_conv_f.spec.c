@@ -51,6 +51,22 @@ static void minus_zero_one(t_test *test)
 	assert_printf("-0.1 == %f\n", -0.1);
 }
 
+static void default_precision(t_test *test)
+{
+	assert_printf("%f\n", 0.0000016);
+	assert_printf("999.999999 -> %f", 999.999999);
+}
+
+static void precision_zero_flag_min_width(t_test *test)
+{
+	assert_printf("%012.8f", 42.4242);
+}
+
+static void zero_precision(t_test *test)
+{
+	assert_printf("%012.0f, %012.0lf, %012.0Lf", 42.4242, 42.4242, 42.4242L);
+}
+
 void	suite_93_conv_f(t_suite *suite)
 {
 	SUITE_ADD_TEST(suite, simple_small_nbr);
@@ -62,4 +78,7 @@ void	suite_93_conv_f(t_suite *suite)
 	SUITE_ADD_TEST(suite, space_flag);
 	SUITE_ADD_TEST(suite, minus_zero);
 	SUITE_ADD_TEST(suite, minus_zero_one);
+	SUITE_ADD_TEST(suite, default_precision);
+	SUITE_ADD_TEST(suite, precision_zero_flag_min_width);
+	SUITE_ADD_TEST(suite, zero_precision);
 }
