@@ -41,6 +41,14 @@ static void space_flag(t_test *test)
 	assert_printf("% 06.0f - % 06.0lf - % 06.0Lf\n", 1.42, 1.42, 1.42l);
 }
 
+static void mix_flag(t_test *test)
+{
+	assert_printf("% f - % lf - % Lf\n", 1.42, 1.42, 1.42l);
+	assert_printf("%+f - %+lf - %+Lf\n", 1.42, 1.42, 1.42l);
+	assert_printf("% 0f - % 0lf - % 0Lf\n", 1.42, 1.42, 1.42l);
+	assert_printf("%+0f - %+0lf - %+0Lf\n", 1.42, 1.42, 1.42l);
+}
+
 static void minus_zero(t_test *test)
 {
 	assert_printf("%Lf\n", -0.0L);
@@ -76,9 +84,10 @@ void	suite_93_conv_f(t_suite *suite)
 	SUITE_ADD_TEST(suite, zero_flag);
 	SUITE_ADD_TEST(suite, plus_flag);
 	SUITE_ADD_TEST(suite, space_flag);
-	SUITE_ADD_TEST(suite, minus_zero);
+	SUITE_ADD_TEST(suite, mix_flag);
 	SUITE_ADD_TEST(suite, minus_zero_one);
 	SUITE_ADD_TEST(suite, default_precision);
 	SUITE_ADD_TEST(suite, precision_zero_flag_min_width);
 	SUITE_ADD_TEST(suite, zero_precision);
+	SUITE_ADD_TEST(suite, minus_zero);
 }
